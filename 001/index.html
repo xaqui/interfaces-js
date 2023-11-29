@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTOS</title>
+    <style type="text/css">
+        .wavy {
+            position: relative;
+        }
+    
+        .wavy span {
+            color: white;
+            position: relative;
+            display: inline-block;
+            font-size: 2em;
+            text-transform: uppercase;
+            animation: animate 3.5s ease-in-out infinite;
+            animation-delay: calc(0.1s * var(--i));
+        }
+    
+        @keyframes animate {
+            0% {
+                transform: translateY(0px);
+                color: red;
+            }
+    
+            20% {
+                transform: translateY(-20px);
+                color: blue;
+            }
+    
+            40%,
+            100% {
+                transform: translateY(0px);
+                color: white;
+            }
+        }
+        </style>
+</head>
+<body>
+
+    <p onclick="listenerHTML()">Evento HTML</p>
+    <button id="listenerJS">eventListener() desde JS</button>
+    <button id="addEventListenerJS">addEventListener() desde JS</button>
+    <button id="addEventListenerJSFunctionDeclarada">addEventListenerJSFunctionDeclarada() desde JS</button>
+    <div class="wavy">
+        <span style="--i:1">P</span>
+        <span style="--i:2">o</span>
+        <span style="--i:3">r</span>
+        <span style="--i:4">&nbsp;</span>
+        <span style="--i:5">f</span>
+        <span style="--i:6">i</span>
+        <span style="--i:7">n</span>
+        <span style="--i:8">&nbsp;</span>
+        <span style="--i:9">e</span>
+        <span style="--i:10">s</span>
+        <span style="--i:11">&nbsp;</span>
+        <span style="--i:12">J</span>
+        <span style="--i:13">u</span>
+        <span style="--i:14">e</span>
+        <span style="--i:15">v</span>
+        <span style="--i:16">e</span>
+        <span style="--i:17">s</span>
+    </div>
+</body>
+</html>
+
+<script>
+    // Método 1 (no recomendado)
+    function listenerHTML(){
+        console.log("Evento HTML. Click en el listener DOM");
+    }
+    // Método 2
+    /*Problema: Tienes que declarar multiples funciones*/
+    function clickListener(){
+        console.log("Evento JS. Click en el listener desde JS");
+    }
+    const titulo2 = document.getElementById("listenerJS");
+    titulo2.onclick = clickListener; //la llamada a la funcion no lleva () de lo contrario se ejecuta directamente
+
+    // Método 3 (recomendado)
+    const tituloAddEventListener = document.getElementById("addEventListenerJS");
+    function clickAddEventListener(){
+        console.log("Evento JS. Click en el addEventlistener desde JS");
+    }
+    tituloAddEventListener.addEventListener("mouseover", clickAddEventListener);
+
+    // Método 4 addEventListener con funcion dntro
+    const tituloAddEventListenerFuncionDeclarada = document.getElementById("addEventListenerJSFunctionDeclarada");
+    tituloAddEventListenerFuncionDeclarada.addEventListener("click", function(){
+        console.log("Evento JS. Click en el addEventlistener desde JS");
+    });
+
+</script>
