@@ -44,6 +44,8 @@
     <button id="listenerJS">eventListener() desde JS</button>
     <button id="addEventListenerJS">addEventListener() desde JS</button>
     <button id="addEventListenerJSFunctionDeclarada">addEventListenerJSFunctionDeclarada() desde JS</button>
+    <button id="addEventListenerJSFunctionFlecha">addEventListenerJSFunctionFlecha() desde JS</button>
+    <button id="addEventListenerJSFunctionFlechaAnonima">addEventListenerJSFunctionFlechaAnonima() desde JS</button>
     <div class="wavy">
         <span style="--i:1">P</span>
         <span style="--i:2">o</span>
@@ -79,17 +81,32 @@
     const titulo2 = document.getElementById("listenerJS");
     titulo2.onclick = clickListener; //la llamada a la funcion no lleva () de lo contrario se ejecuta directamente
 
-    // Método 3 (recomendado)
+    // --------- eventListener -----------
+    // Método 3.1 (recomendado)
     const tituloAddEventListener = document.getElementById("addEventListenerJS");
     function clickAddEventListener(){
         console.log("Evento JS. Click en el addEventlistener desde JS");
     }
     tituloAddEventListener.addEventListener("mouseover", clickAddEventListener);
 
-    // Método 4 addEventListener con funcion dntro
+    // Método 3.2 addEventListener con funcion dntro
     const tituloAddEventListenerFuncionDeclarada = document.getElementById("addEventListenerJSFunctionDeclarada");
     tituloAddEventListenerFuncionDeclarada.addEventListener("click", function(){
         console.log("Evento JS. Click en el addEventlistener desde JS");
     });
+
+    // Método 3.3 addEventListener con funcion flecha
+    const tituloAddEventListenerFuncionFlecha = document.getElementById("addEventListenerJSFunctionFlecha");
+    const clickAddEventListenerArrow = () => {
+        console.log("Evento JS. Click en el addEventlistener desde JS");
+    };
+    tituloAddEventListenerFuncionFlecha.addEventListener("click", clickAddEventListenerArrow);
+    
+    // Método 3.4 addEventListener con funcion flecha anonima
+    const tituloAddEventListenerFuncionFlechaAnonima = document.getElementById("addEventListenerJSFunctionFlechaAnonima");
+    tituloAddEventListenerFuncionFlechaAnonima.addEventListener("click", () => {
+        console.log("Evento JS. Click en el addEventlistener desde JS");
+    });
+
 
 </script>
