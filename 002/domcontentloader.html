@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>002</title>
+    <script>
+      /*
+       * Si quieres ejecutar código JavaScript después de que el contenido del DOM
+       * esté completamente cargado, puedes utilizar el evento DOMContentLoaded.
+       * Este evento se disparará tan pronto como el DOM esté listo y pueda ser analizado,
+       * incluso si otros recursos como imágenes u hojas de estilo aún no han
+       * terminado de cargarse.
+       */
+      document.addEventListener("DOMContentLoaded", () => {
+        const myParagraph = document.getElementById("myParagraph");
+        console.log(myParagraph.innerText);
+      });
+      
+    </script>
+  </head>
+  <body>
+    <p id="myParagraph">Don't make me say it again. I'm a cleaner.</p>
+  </body>
+</html>
